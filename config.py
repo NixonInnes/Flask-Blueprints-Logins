@@ -27,7 +27,7 @@ class Config(object):
 class DevConfig(Config):
     DEBUG = True
     SQLALCHEMY_TRACK_MODIFICATIONS = True
-    DATABASE_URI = os.getenv('DEV_DATABASE_URI',
+    SQLALCHEMY_DATABASE_URI = os.getenv('DEV_DATABASE_URI',
         'sqlite:///' + os.path.join(basedir, 'dev-db.sqlite'))
     LOG_DIR = os.path.join(Config.LOG_DIR, 'dev')
 
@@ -45,7 +45,7 @@ class DevConfig(Config):
 
 class TestConfig(Config):
     TESTING = True
-    DATABASE_URI = os.getenv('TEST_DATABASE_URI',
+    SQLALCHEMY_DATABASE_URI = os.getenv('TEST_DATABASE_URI',
         'sqlite:///' + os.path.join(basedir, 'test-db.sqlite'))
     LOG_DIR = os.path.join(Config.LOG_DIR, 'test')
 
@@ -62,7 +62,7 @@ class TestConfig(Config):
 
 
 class ProdConfig(Config):
-    DATABASE_URI = os.getenv('DATABASE_URI',
+    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URI',
         'sqlite:///' + os.path.join(basedir, 'db.sqlite'))
 
     @classmethod
