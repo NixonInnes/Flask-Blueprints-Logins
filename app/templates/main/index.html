@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}My Flask App{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>My Flask Application</h1>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        This is a base flask setup!
+    </div>
+</div>
+
+{% if pagination %}
+<div class="pagination">
+    {{ macros.pagination_widget(pagination, '.index') }}
+</div>
+{% endif %}
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{% endblock %}
