@@ -5,12 +5,11 @@
 
 {% block page_content %}
 <div class="page-header">
-    <h1>My Flask Application</h1>
+    <h1>Add Example</h1>
 </div>
 <div class="row">
-    <div class="col-md-12">
-        This is an example of using Flask with blueprints.</br>
-        <a href="https://github.com/NixonInnes/Flask-BP-Logins">The source can be found here</a>
+    <div class="col-md-offset-2 col-md-8">
+        {{ wtf.quick_form(form) }}
     </div>
 </div>
 

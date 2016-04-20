@@ -6,6 +6,16 @@ from flask.ext.login import UserMixin, AnonymousUserMixin
 from . import db, login_manager
 
 
+class Example(db.Model):
+    __tablename__ = 'examples'
+    id = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.String)
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
+
+    author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    author = db.relationship('User', backref='examples')
+
+
 class Permission:
     PERM1 = 0x01
     PERM2 = 0x02
@@ -54,12 +64,12 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(128))
     confirmed = db.Column(db.Boolean, default=False)
 
-
     def __init__(self, **kwargs):
         super(User, self).__init__(**kwargs)
         if self.role is None:
             if self.email == current_app.config['APP_ADMIN']:
                 self.role = Role.query.filter_by(permissions=0xff).first()
+                self.confirmed = True
             if self.role is None:
                 self.role = Role.query.filter_by(default=True).first()
 

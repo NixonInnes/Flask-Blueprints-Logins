@@ -1,7 +1,7 @@
 from flask.ext.wtf import Form
 from wtforms import ValidationError, StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import DataRequired, Length, Email, Regexp, EqualTo
-from app.models import User
+from ...models import User
 
 banned_usernames = [
     'edit-profile',

@@ -1,4 +1,3 @@
-
 {% extends "bootstrap/base.html" %}
 
 {% block title %}My Flask App{% endblock %}
@@ -30,9 +29,9 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="{{ url_for('main.index') }}">Home</a></li>
-                <li><a href="#"># 1</a></li>
+                <li><a href="{{ url_for('main.browse') }}">Browse</a></li>
                 {% if current_user.is_authenticated %}
-                <li><a href="#"># 2</a></li>
+                <li><a href="{{ url_for('main.add') }}">Add</a></li>
                 <li><a href="#"># 3</a></li>
                 <li><a href="#"># 4</a></li>
                 {% endif %}

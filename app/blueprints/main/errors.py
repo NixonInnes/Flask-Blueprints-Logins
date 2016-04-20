@@ -1,5 +1,5 @@
 from flask import render_template, request, jsonify
-from app.main import main
+from . import main
 
 
 @main.app_errorhandler(403)

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}My Flask App{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Example</h1>
+</div>
+<div class="row">
+    <div class="col-md-offset-2 col-md-8">
+        <table class="table">
+            <tr>
+                <th>Example ID</th>
+                <td>{{ example.id }}</td>
+            </tr>
+            <tr>
+                <th>Example Text</th>
+                <td>{{ example.text }}</td>
+            </tr>
+            <tr>
+                <th>Example Timestamp</th>
+                <td>{{ example.timestamp }}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{% endblock %}
