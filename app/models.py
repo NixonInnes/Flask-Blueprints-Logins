@@ -2,8 +2,12 @@ from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from flask import current_app
-from flask.ext.login import UserMixin, AnonymousUserMixin
-from . import db, login_manager
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager, UserMixin, AnonymousUserMixin
+
+db = SQLAlchemy()
+login_manager = LoginManager()
+
 
 
 class Example(db.Model):

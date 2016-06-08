@@ -1,9 +1,8 @@
 from flask import render_template, redirect, url_for
-from flask.ext.login import login_required
+from flask_login import login_required
 from . import main
 from .forms import ExampleForm
-from ... import db
-from ...models import Example
+from app.models import db, Example
 
 
 @main.route('/', methods=['GET'])
